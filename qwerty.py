@@ -1,9 +1,14 @@
 import os
-import pprint
+#import pprint
+#import loggin
+
+TARGET_DIR = '/home/qiwi/shared_vb/'
+SOURCE_DIR = '/home/qiwi/'
 
 
 def list_dir(root_dir):
     result = []
+
     for item in os.listdir(root_dir):
         path = os.path.join(root_dir, item)
         if os.path.isfile(path):
@@ -24,7 +29,15 @@ def walk(root_dir):
 
 
 def main():
-    pprint.pprint(walk('/home/qiwi/'))
+
+    print('start processing...')
+    target_files = walk(TARGET_DIR)
+    source_files = walk(SOURCE_DIR)
+
+    [print(item) for item in source_files if item not in target_files]
+
+    # pprint.pprint()
+    print('end processing...')
 
 if __name__ == '__main__':
     main()
