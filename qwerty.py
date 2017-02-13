@@ -1,9 +1,10 @@
 import os
 import logging
-import pprint
+# import pprint
 
-TARGET_DIR = '/home/qiwi/shared_vb/'
-SOURCE_DIR = '/home/qiwi/'
+TARGET_DIR = '/home/gunj/Documents/'
+SOURCE_DIR = '/home/gunj/Downloads/g-disk'
+
 
 def walk(root_dir):
     result = []
@@ -19,12 +20,11 @@ def walk(root_dir):
 def main():
 
     logging.basicConfig(
-    filename='find-missing-files.log',
-    format='%(asctime)s:%(levelname)s:%(message)s',
-    # datefmt='%m/%d/%Y %I:%M:%S %p',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    level=logging.INFO    
-    )
+        filename='find-missing-files.log',
+        format='%(asctime)s:%(levelname)s:%(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        level=logging.INFO
+        )
 
     logging.info('start')
     print('start processing...')
@@ -32,8 +32,10 @@ def main():
     source_files = walk(SOURCE_DIR)
 
     list_files = [item for item in source_files if item not in target_files]
-    pprint.pprint(list_files)
-    
+    [logging.warn(item) for item in list_files]
+
+    # pprint.pprint(list_files)
+
     print('end processing...')
     logging.info('end')
 
