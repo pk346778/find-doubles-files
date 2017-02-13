@@ -2,8 +2,8 @@ import os
 import logging
 # import pprint
 
-TARGET_DIR = '/home/gunj/Documents/'
-SOURCE_DIR = '/home/gunj/Downloads/g-disk'
+TARGET_DIR = '/home/gunj/Downloads/g-disk'
+SOURCE_DIR = '/home/gunj/google-drive-local'
 
 
 def walk(root_dir):
