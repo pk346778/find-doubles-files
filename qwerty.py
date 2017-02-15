@@ -1,6 +1,6 @@
 import os
 import logging
-# import pprint
+
 
 TARGET_DIR = '/home/gunj/Downloads/g-disk'
 SOURCE_DIR = '/home/gunj/google-drive-local'
@@ -11,7 +11,7 @@ def walk(root_dir):
     for root, dirs, files in os.walk(root_dir):
         if len(files) > 0:
             for file_ in files:
-                path = os.path.join(root, file_)
+                path = os.path.join(root, file_).replace(root_dir, '')
                 if os.path.isfile(path):
                     result.append(path)
     return result
